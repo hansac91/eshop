@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import StorefrontIcon from '@material-ui/icons/Storefront';
 import { auth } from "./firebase";
 
+
 function Login() {
     const history = useNavigate();
     const [email, setEmail] = useState('');
@@ -14,7 +15,7 @@ function Login() {
 
         auth
             .signInWithEmailAndPassword(email, password)
-            .the(auth => {
+            .then(auth => {
                 history.push('/');
             })
             .catch(error => alert(error.message))
@@ -61,7 +62,7 @@ function Login() {
         see our Privacy Notice, our Cookies Notice and our Interest-Based Ads Notice.
     </p>
   
-    <button className='login__registerButton' onClick={register}>Create your eShop Account</button>
+    <button className='login_registerButton' onClick={register}>Create your eShop Account</button>
 
     </div>
 </div>
